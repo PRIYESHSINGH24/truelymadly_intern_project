@@ -15,17 +15,17 @@ const TerminalOutput: React.FC<TerminalOutputProps> = ({ logs }) => {
   const getAgentConfig = (agent: string) => {
     switch (agent) {
       case 'User':
-        return { color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/30', icon: '👤' };
+        return { color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/30', label: 'USR' };
       case 'Planner':
-        return { color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/30', icon: '🧠' };
+        return { color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/30', label: 'PLN' };
       case 'Executor':
-        return { color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/30', icon: '⚡' };
+        return { color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/30', label: 'EXE' };
       case 'Verifier':
-        return { color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', icon: '✓' };
+        return { color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', label: 'VER' };
       case 'System':
-        return { color: 'text-gray-500', bg: 'bg-gray-500/10', border: 'border-gray-500/30', icon: '⚙' };
+        return { color: 'text-gray-500', bg: 'bg-gray-500/10', border: 'border-gray-500/30', label: 'SYS' };
       default:
-        return { color: 'text-white', bg: 'bg-white/10', border: 'border-white/30', icon: '•' };
+        return { color: 'text-white', bg: 'bg-white/10', border: 'border-white/30', label: '---' };
     }
   };
 
@@ -120,9 +120,8 @@ const TerminalOutput: React.FC<TerminalOutputProps> = ({ logs }) => {
                   {/* Agent badge */}
                   <div className="flex-shrink-0">
                     <div className={`flex items-center gap-1.5 px-2 py-1 rounded-md ${agentConfig.bg} border ${agentConfig.border} transition-all group-hover/log:scale-105`}>
-                      <span className="text-xs">{agentConfig.icon}</span>
                       <span className={`text-[10px] font-bold tracking-wider uppercase ${agentConfig.color}`}>
-                        {log.agent}
+                        [{agentConfig.label}]
                       </span>
                     </div>
                   </div>

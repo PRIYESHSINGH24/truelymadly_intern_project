@@ -24,7 +24,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, config, 
       placeholder: 'AIza...',
       required: true,
       color: 'cyan',
-      icon: '🤖',
       description: 'Required for AI-powered planning and verification'
     },
     {
@@ -33,7 +32,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, config, 
       placeholder: 'Your OpenWeather key...',
       required: false,
       color: 'amber',
-      icon: '🌤️',
       description: 'Optional - enables weather queries'
     },
     {
@@ -42,7 +40,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, config, 
       placeholder: 'ghp_...',
       required: false,
       color: 'purple',
-      icon: '🐙',
       description: 'Optional - enables GitHub repository search'
     }
   ];
@@ -111,7 +108,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, config, 
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-lg">{field.icon}</span>
                   <label className={`text-xs font-bold uppercase tracking-wider text-${field.color}-400`}>
                     {field.label}
                     {field.required && <span className="text-red-400 ml-1">*</span>}

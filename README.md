@@ -24,7 +24,6 @@ A multi-agent AI assistant built with React and TypeScript. Features a Planner, 
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- Gemini API Key
 
 ### Installation
 
@@ -33,21 +32,21 @@ A multi-agent AI assistant built with React and TypeScript. Features a Planner, 
    npm install
    ```
 
-2. Create a `.env.local` file and add your API key:
-   ```
-   GEMINI_API_KEY=your_api_key_here
-   ```
-
-3. Run the development server:
+2. Run the development server:
    ```bash
    npm run dev
    ```
 
-4. Open http://localhost:3000 in your browser
+3. Open http://localhost:3000 in your browser
+
+4. On first load, the Settings modal will appear - enter your API keys:
+   - **Gemini API Key** (required): Get it from [Google AI Studio](https://aistudio.google.com/)
+   - **OpenWeather API Key** (optional): For weather queries
+   - **GitHub Token** (optional): For GitHub search queries
 
 ## Usage
 
-1. Click the settings icon to configure your API keys
+1. Configure your API keys in the Settings modal (opens automatically on first visit)
 2. Enter a task in natural language (e.g., "Search for React repos on GitHub" or "What's the weather in London?")
 3. Click RUN to execute the multi-agent workflow
 

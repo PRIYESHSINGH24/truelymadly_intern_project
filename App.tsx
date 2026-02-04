@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { AppConfig, AppStatus, LogEntry } from './types';
 import { runPlanner, runExecutor, runVerifier } from './services/agents';
 import SettingsModal from './components/SettingsModal';
@@ -21,6 +21,13 @@ function App() {
   });
   const [showSettings, setShowSettings] = useState(false);
   const [finalResult, setFinalResult] = useState<string | null>(null);
+
+  // Show settings modal on first load if no API key is configured
+  useEffect(() => {
+    if (!config.geminiApiKey) {
+      setShowSettings(true);
+    }
+  }, []);
 
   const addLog = useCallback((agent: LogEntry['agent'], message: string, type: LogEntry['type'] = 'info', data?: any) => {
     setLogs(prev => [...prev, {
